@@ -1,6 +1,7 @@
 // DO YOUR MAGIC
 const router = require('express').Router();
 const Cars = require('./cars-model');
+const {checkCarId} = require('./cars-middleware');
 
 router.get('/', async (req, res, next) => {
     
@@ -12,5 +13,9 @@ router.get('/', async (req, res, next) => {
         next(err)
     }
 });
+
+router.get('/:id', checkCarId, (req, res, next) => {
+    res.status(200).json(req.car);
+})
 
 module.exports = router;
