@@ -4,6 +4,9 @@
   "main": "index.js",
   "scripts": {
     "server": "nodemon index.js",
+    "latest": "knex migrate:latest",
+    "rolback": "knex migrate:rollback",
+    "seed": "knex seed:run",
     "test": "cross-env NODE_ENV=testing jest --verbose --runInBand"
   },
   "devDependencies": {
